@@ -1,6 +1,9 @@
 import Image from 'next/image'
+import { getDictionary } from '@/lib/dictionaries'
 
-export default function About() {
+export default async function About() {
+  const dict = await getDictionary()
+
   return (
     <section className="about" id="about">
       <div className="section-shell about-inner">
@@ -8,7 +11,7 @@ export default function About() {
           <div className="about-img">
             <Image
               src="/images/5289699563504003197.jpg"
-              alt="Mels Ambardaryan, frontend developer"
+              alt={`${dict.hero.name}, ${dict.about.subtitle}`}
               width={930}
               height={1280}
               sizes="(max-width: 365px) 90vw, (max-width: 768px) 70vw, 35vw"
@@ -17,18 +20,11 @@ export default function About() {
         </div>
         <div className="about-content">
           <h2 className="heading">
-            About <span>Me</span>
+            {dict.about.headingPrefix} <span>{dict.about.headingHighlight}</span>
           </h2>
-          <h3>FrontEnd Developer</h3>
-          <p>
-            I have been involved in programming since 2022 and already have several certificates,
-            both received in the Republic of Armenia and internationally. I have done volunteer work as well as freelance projects.
-            I specialize in frontend development with JavaScript.
-            I have studied at several educational centers,
-            and now I am developing my skills both in programming and in foreign languages,
-            particularly English.
-          </p>
-          <a href="/files/MelssCv.pdf" target="_blank" rel="noopener noreferrer" aria-label="Read more about Mels Ambardaryan (opens CV as PDF)" className="btn">Read More</a>
+          <h3>{dict.about.subtitle}</h3>
+          <p>{dict.about.bio}</p>
+          <a href="/files/MelssCv.pdf" target="_blank" rel="noopener noreferrer" aria-label={dict.about.readMoreAriaLabel} className="btn">{dict.about.readMore}</a>
         </div>
       </div>
     </section>

@@ -1,10 +1,13 @@
 import Image from 'next/image'
+import { getDictionary } from '@/lib/dictionaries'
 
-export default function Works() {
+export default async function Works() {
+  const dict = await getDictionary()
+
   return (
     <section className="works" id="works">
       <div className="section-shell">
-        <h2 className="heading">My <span>Works</span></h2>
+        <h2 className="heading">{dict.works.headingPrefix} <span>{dict.works.headingHighlight}</span></h2>
 
         <div className="work-featured">
           <div className="work-featured-media">
@@ -19,34 +22,24 @@ export default function Works() {
             />
           </div>
           <div className="work-featured-content">
-            <p className="work-featured-eyebrow">Featured Project</p>
-            <h3>ARM GROUP</h3>
+            <p className="work-featured-eyebrow">{dict.works.featured.eyebrow}</p>
+            <h3>{dict.works.featured.title}</h3>
             <p className="works-tags">HTML &middot; CSS &middot; JavaScript &middot; Node.js &middot; Express &middot; Swiper.js</p>
-            <p>
-              Full-stack e-commerce website built for an Armenian natural-food export
-              company entering the Polish market. Features a product catalog with
-              category filters, shopping cart, wishlist, a bilingual (Armenian/Polish)
-              interface with a custom i18n system, and multi-currency pricing.
-              Designed and developed end-to-end, frontend and backend.
-            </p>
-            <a href="https://armgroup.pl/" target="_blank" rel="noopener noreferrer" className="btn">Live Demo</a>
+            <p>{dict.works.featured.description}</p>
+            <a href="https://armgroup.pl/" target="_blank" rel="noopener noreferrer" className="btn">{dict.works.featured.cta}</a>
           </div>
         </div>
 
-        <p className="works-more-label">More Projects</p>
+        <p className="works-more-label">{dict.works.moreLabel}</p>
         <div className="works-more-grid">
-          <div className="works-box">
-            <i className="bx bx-window-alt" aria-hidden="true"></i>
-            <h3>Project Title</h3>
-            <p>Short description of this project: what it does and which technologies were used.</p>
-            <a href="#" className="btn">View Project</a>
-          </div>
-          <div className="works-box">
-            <i className="bx bx-window-alt" aria-hidden="true"></i>
-            <h3>Project Title</h3>
-            <p>Short description of this project: what it does and which technologies were used.</p>
-            <a href="#" className="btn">View Project</a>
-          </div>
+          {dict.works.placeholders.map((project, i) => (
+            <div className="works-box" key={i}>
+              <i className="bx bx-window-alt" aria-hidden="true"></i>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <a href="#" className="btn">{project.cta}</a>
+            </div>
+          ))}
         </div>
       </div>
     </section>

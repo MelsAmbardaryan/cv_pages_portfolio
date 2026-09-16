@@ -1,7 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 
-export default function SiteScripts() {
+export default function SiteScripts({ typedStrings }) {
   useEffect(() => {
     let cancelled = false
     let typedInstance
@@ -48,7 +48,7 @@ export default function SiteScripts() {
       if (cancelled) return
 
       typedInstance = new Typed('.multiple-text', {
-        strings: ['FrontEnd Developer', 'Web Developer'],
+        strings: typedStrings,
         typeSpeed: 100,
         backSpeed: 100,
         backDelay: 1000,

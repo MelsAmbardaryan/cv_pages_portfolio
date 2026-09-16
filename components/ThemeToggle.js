@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 
-export default function ThemeToggle() {
+export default function ThemeToggle({ labels }) {
   const [theme, setTheme] = useState(null)
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function ThemeToggle() {
       type="button"
       onClick={toggle}
       className="theme-toggle"
-      aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-label={theme === 'dark' ? labels.toLight : labels.toDark}
     >
       <i className={theme === 'dark' ? 'bx bx-sun' : 'bx bx-moon'} aria-hidden="true"></i>
     </button>

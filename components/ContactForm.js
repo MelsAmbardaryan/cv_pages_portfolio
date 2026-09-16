@@ -2,14 +2,14 @@
 import { useState } from 'react'
 import { FORMSPREE_ENDPOINT, CONTACT_EMAIL } from '@/lib/site'
 
-export default function ContactForm() {
+export default function ContactForm({ dict }) {
   const [status, setStatus] = useState('idle')
 
   if (!FORMSPREE_ENDPOINT) {
     return (
       <p className="contact-fallback">
-        The contact form isn&apos;t set up yet — please email me directly at{' '}
-        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+        {dict.fallbackBefore}{' '}
+        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>{dict.fallbackAfter}
       </p>
     )
   }
@@ -42,7 +42,7 @@ export default function ContactForm() {
   if (status === 'success') {
     return (
       <p className="contact-status contact-status-success" role="status">
-        Thanks for reaching out! I&apos;ll get back to you soon.
+        {dict.successMessage}
       </p>
     )
   }
@@ -50,26 +50,26 @@ export default function ContactForm() {
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
       <div className="contact-field">
-        <label htmlFor="contact-name">Name</label>
+        <label htmlFor="contact-name">{dict.nameLabel}</label>
         <input type="text" id="contact-name" name="name" required autoComplete="name" />
       </div>
       <div className="contact-field">
-        <label htmlFor="contact-email">Email</label>
+        <label htmlFor="contact-email">{dict.emailLabel}</label>
         <input type="email" id="contact-email" name="email" required autoComplete="email" />
       </div>
       <div className="contact-field">
-        <label htmlFor="contact-message">Message</label>
+        <label htmlFor="contact-message">{dict.messageLabel}</label>
         <textarea id="contact-message" name="message" rows={5} required></textarea>
       </div>
 
       <button type="submit" className="btn" disabled={status === 'submitting'}>
-        {status === 'submitting' ? 'Sending…' : 'Send Message'}
+        {status === 'submitting' ? dict.submitSending : dict.submitIdle}
       </button>
 
       {status === 'error' && (
         <p className="contact-status contact-status-error" role="alert">
-          Something went wrong. Please try again, or email me directly at{' '}
-          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+          {dict.errorBefore}{' '}
+          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>{dict.errorAfter}
         </p>
       )}
     </form>

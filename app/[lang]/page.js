@@ -8,11 +8,14 @@ import Footer from '@/components/Footer'
 import SiteScripts from '@/components/SiteScripts'
 import ScrollEffects from '@/components/ScrollEffects'
 import CustomCursor from '@/components/CustomCursor'
+import { getDictionary } from '@/lib/dictionaries'
 
-export default function Page() {
+export default async function Page() {
+  const dict = await getDictionary()
+
   return (
     <>
-      <a href="#main-content" className="skip-link">Skip to main content</a>
+      <a href="#main-content" className="skip-link">{dict.skipLink}</a>
       <Header />
       <main id="main-content" tabIndex={-1}>
         <Home />
@@ -22,7 +25,7 @@ export default function Page() {
         <Contact />
       </main>
       <Footer />
-      <SiteScripts />
+      <SiteScripts typedStrings={dict.hero.typedRoles} />
       <ScrollEffects />
       <CustomCursor />
     </>

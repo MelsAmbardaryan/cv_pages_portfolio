@@ -1,23 +1,33 @@
+import Link from 'next/link'
+import { lang } from 'next/root-params'
 import ThemeToggle from '@/components/ThemeToggle'
+import { getDictionary } from '@/lib/dictionaries'
 
-export default function Header() {
+export default async function Header() {
+  const dict = await getDictionary()
+  const currentLang = await lang()
+  const otherLang = currentLang === 'hy' ? 'en' : 'hy'
+
   return (
     <header className="header">
       <div className="section-shell header-inner">
-        <a href="#" className="logo">Portfolio</a>
+        <a href="#" className="logo">{dict.nav.logo}</a>
         <nav className="navbar" id="primary-navigation">
-          <a href="#home" className="active" style={{ '--i': 1 }}>Home</a>
-          <a href="#service" style={{ '--i': 2 }}>Services</a>
-          <a href="#works" style={{ '--i': 3 }}>Works</a>
-          <a href="#about" style={{ '--i': 4 }}>About</a>
-          <a href="#contact" style={{ '--i': 5 }}>Contact</a>
-          <ThemeToggle />
+          <a href="#home" className="active" style={{ '--i': 1 }}>{dict.nav.home}</a>
+          <a href="#service" style={{ '--i': 2 }}>{dict.nav.services}</a>
+          <a href="#works" style={{ '--i': 3 }}>{dict.nav.works}</a>
+          <a href="#about" style={{ '--i': 4 }}>{dict.nav.about}</a>
+          <a href="#contact" style={{ '--i': 5 }}>{dict.nav.contact}</a>
+          <Link href={`/${otherLang}`} className="lang-switch" hrefLang={otherLang}>
+            {dict.langSwitch.label}
+          </Link>
+          <ThemeToggle labels={dict.themeToggle} />
         </nav>
         <button
           type="button"
           id="menu-icon"
           className="menu-icon"
-          aria-label="Toggle menu"
+          aria-label={dict.nav.menuToggleLabel}
           aria-expanded="false"
           aria-controls="primary-navigation"
         >
