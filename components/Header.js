@@ -3,7 +3,7 @@ import { lang } from 'next/root-params'
 import ThemeToggle from '@/components/ThemeToggle'
 import { getDictionary } from '@/lib/dictionaries'
 
-export default async function Header() {
+export default async function Header({ path = '', homeActive = true } = {}) {
   const dict = await getDictionary()
   const currentLang = await lang()
   const otherLang = currentLang === 'hy' ? 'en' : 'hy'
@@ -11,14 +11,15 @@ export default async function Header() {
   return (
     <header className="header">
       <div className="section-shell header-inner">
-        <a href="#" className="logo">{dict.nav.logo}</a>
+        <a href={`/${currentLang}`} className="logo">{dict.nav.logo}</a>
         <nav className="navbar" id="primary-navigation">
-          <a href="#home" className="active" style={{ '--i': 1 }}>{dict.nav.home}</a>
-          <a href="#service" style={{ '--i': 2 }}>{dict.nav.services}</a>
-          <a href="#works" style={{ '--i': 3 }}>{dict.nav.works}</a>
-          <a href="#about" style={{ '--i': 4 }}>{dict.nav.about}</a>
-          <a href="#contact" style={{ '--i': 5 }}>{dict.nav.contact}</a>
-          <Link href={`/${otherLang}`} className="lang-switch" hrefLang={otherLang}>
+          <a href={`/${currentLang}#home`} className={homeActive ? 'active' : undefined} style={{ '--i': 1 }}>{dict.nav.home}</a>
+          <a href={`/${currentLang}#service`} style={{ '--i': 2 }}>{dict.nav.services}</a>
+          <a href={`/${currentLang}#works`} style={{ '--i': 3 }}>{dict.nav.works}</a>
+          <a href={`/${currentLang}#skills`} style={{ '--i': 4 }}>{dict.nav.skills}</a>
+          <a href={`/${currentLang}#about`} style={{ '--i': 5 }}>{dict.nav.about}</a>
+          <a href={`/${currentLang}#contact`} style={{ '--i': 6 }}>{dict.nav.contact}</a>
+          <Link href={`/${otherLang}${path}`} className="lang-switch" hrefLang={otherLang}>
             {dict.langSwitch.label}
           </Link>
           <ThemeToggle labels={dict.themeToggle} />

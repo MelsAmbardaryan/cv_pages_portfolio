@@ -2,6 +2,7 @@ import Header from '@/components/Header'
 import Home from '@/components/Home'
 import Services from '@/components/Services'
 import Works from '@/components/Works'
+import Skills from '@/components/Skills'
 import About from '@/components/About'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
@@ -21,6 +22,7 @@ export default async function Page() {
         <Home />
         <Services />
         <Works />
+        <Skills />
         <About />
         <Contact />
       </main>

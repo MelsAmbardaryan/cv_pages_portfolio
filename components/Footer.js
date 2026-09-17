@@ -1,7 +1,9 @@
+import { lang } from 'next/root-params'
 import { getDictionary } from '@/lib/dictionaries'
 
 export default async function Footer() {
   const dict = await getDictionary()
+  const currentLang = await lang()
 
   return (
     <footer>
@@ -16,7 +18,7 @@ export default async function Footer() {
           <a href="https://www.instagram.com/ambardaryanmels/" aria-label={dict.hero.social.instagram}><i className="bx bxl-instagram" aria-hidden="true"></i></a>
         </div>
         <div className="footer-icon">
-          <a href="#home" aria-label={dict.footer.backToTopLabel}>
+          <a href={`/${currentLang}#home`} aria-label={dict.footer.backToTopLabel}>
             <i className="bx bx-up-arrow-alt" aria-hidden="true"></i>
           </a>
         </div>

@@ -27,11 +27,12 @@ export default function SiteScripts({ typedStrings }) {
         const height = section.offsetHeight
         const id = section.getAttribute('id')
 
-        if (top >= offset && top < offset + height) {
-          navLinks.forEach(link => {
-            link.classList.remove('active')
-            document.querySelector(`header nav a[href*=${id}]`).classList.add('active')
-          })
+        if (id && top >= offset && top < offset + height) {
+          const matchingLink = document.querySelector(`header nav a[href*=${id}]`)
+          if (matchingLink) {
+            navLinks.forEach(link => link.classList.remove('active'))
+            matchingLink.classList.add('active')
+          }
         }
       })
 
@@ -44,6 +45,7 @@ export default function SiteScripts({ typedStrings }) {
     window.addEventListener('scroll', onScroll)
 
     const startTyped = async () => {
+      if (!document.querySelector('.multiple-text')) return
       const { default: Typed } = await import('typed.js')
       if (cancelled) return
 

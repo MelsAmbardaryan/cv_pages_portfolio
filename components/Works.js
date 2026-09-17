@@ -1,8 +1,10 @@
 import Image from 'next/image'
+import { lang } from 'next/root-params'
 import { getDictionary } from '@/lib/dictionaries'
 
 export default async function Works() {
   const dict = await getDictionary()
+  const currentLang = await lang()
 
   return (
     <section className="works" id="works">
@@ -26,20 +28,16 @@ export default async function Works() {
             <h3>{dict.works.featured.title}</h3>
             <p className="works-tags">HTML &middot; CSS &middot; JavaScript &middot; Node.js &middot; Express &middot; Swiper.js</p>
             <p>{dict.works.featured.description}</p>
-            <a href="https://armgroup.pl/" target="_blank" rel="noopener noreferrer" className="btn">{dict.works.featured.cta}</a>
+            <div className="work-featured-ctas">
+              <a href="https://armgroup.pl/" target="_blank" rel="noopener noreferrer" className="btn">{dict.works.featured.ctaLive}</a>
+              <a href={`/${currentLang}/works/arm-group`} className="btn btn-outline">{dict.works.featured.ctaCase}</a>
+            </div>
           </div>
         </div>
 
-        <p className="works-more-label">{dict.works.moreLabel}</p>
-        <div className="works-more-grid">
-          {dict.works.placeholders.map((project, i) => (
-            <div className="works-box" key={i}>
-              <i className="bx bx-window-alt" aria-hidden="true"></i>
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              <a href="#" className="btn">{project.cta}</a>
-            </div>
-          ))}
+        <div className="works-more-cta">
+          <p className="works-more-label">{dict.works.moreLabel}</p>
+          <a href="https://github.com/MelsAmbardaryan" target="_blank" rel="noopener noreferrer" className="btn btn-outline">{dict.works.moreCta}</a>
         </div>
       </div>
     </section>

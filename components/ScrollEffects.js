@@ -30,10 +30,12 @@ export default function ScrollEffects() {
 
       reveal('.services-box', { opacity: 0, y: 60, duration: 0.7, ease: 'power3.out', stagger: 0.15 }, '.services-contener')
       reveal('.work-featured', { opacity: 0, y: 50, duration: 0.8, ease: 'power3.out' }, '.work-featured')
-      reveal('.works-box', { opacity: 0, y: 60, duration: 0.7, ease: 'power3.out', stagger: 0.15 }, '.works-more-grid')
+      reveal('.works-more-cta', { opacity: 0, y: 30, duration: 0.6, ease: 'power3.out' }, '.works-more-cta')
       reveal('.about-img-frame', { opacity: 0, x: -60, duration: 0.8, ease: 'power3.out' }, '.about')
       reveal('.about-content > *', { opacity: 0, y: 30, duration: 0.6, ease: 'power3.out', stagger: 0.12 }, '.about-content')
       reveal('.contact', { opacity: 0, y: 50, duration: 0.8, ease: 'power3.out' }, '.contact')
+      reveal('.skills-card', { opacity: 0, y: 60, duration: 0.7, ease: 'power3.out', stagger: 0.15 }, '.skills-grid')
+      reveal('.case-study-block', { opacity: 0, y: 40, duration: 0.7, ease: 'power3.out', stagger: 0.1 }, '.case-study-body')
 
       const parallax = (target, trigger, yPercent) => {
         const tw = gsap.to(target, {
@@ -65,7 +67,7 @@ export default function ScrollEffects() {
       }
       triggers.forEach(st => st.kill())
       import('gsap').then(({ gsap }) =>
-        gsap.killTweensOf(['.home-img', '.about-img-frame', '.heading', '.services-box', '.work-featured', '.works-box', '.about-content > *', '.contact'])
+        gsap.killTweensOf(['.home-img', '.about-img-frame', '.heading', '.services-box', '.work-featured', '.works-more-cta', '.about-content > *', '.contact', '.skills-card', '.case-study-block'])
       )
     }
   }, [])

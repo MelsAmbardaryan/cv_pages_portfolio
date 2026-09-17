@@ -12,6 +12,7 @@ export default {
     logo: 'Portfolio',
     home: 'Home',
     services: 'Services',
+    skills: 'Skills',
     works: 'Works',
     about: 'About',
     contact: 'Contact',
@@ -36,8 +37,8 @@ export default {
     techChip: 'JavaScript',
   },
   services: {
-    headingPrefix: 'Our',
-    headingHighlight: 'Services',
+    headingPrefix: 'What I',
+    headingHighlight: 'Do',
     items: [
       {
         number: '01',
@@ -62,6 +63,36 @@ export default {
       },
     ],
   },
+  skills: {
+    headingPrefix: 'My',
+    headingHighlight: 'Tech Stack',
+    subtitle: 'Technologies I work with.',
+    groups: [
+      {
+        title: 'Frontend',
+        items: [
+          { name: 'HTML5', icon: 'bx bxl-html5' },
+          { name: 'CSS3', icon: 'bx bxl-css3' },
+          { name: 'JavaScript', icon: 'bx bxl-javascript' },
+        ],
+      },
+      {
+        title: 'Backend',
+        items: [
+          { name: 'Node.js', icon: 'bx bxl-nodejs' },
+          { name: 'Express.js', icon: 'bx bx-server' },
+        ],
+      },
+      {
+        title: 'Tools & Workflow',
+        items: [
+          { name: 'Git & GitHub', icon: 'bx bxl-github' },
+          { name: 'Vercel', icon: 'bx bx-cloud' },
+          { name: 'VS Code', icon: 'bx bx-code-alt' },
+        ],
+      },
+    ],
+  },
   works: {
     headingPrefix: 'My',
     headingHighlight: 'Works',
@@ -70,13 +101,64 @@ export default {
       title: 'ARM GROUP',
       description:
         'Full-stack e-commerce website built for an Armenian natural-food export company entering the Polish market. Features a product catalog with category filters, shopping cart, wishlist, a bilingual (Armenian/Polish) interface with a custom i18n system, and multi-currency pricing. Designed and developed end-to-end, frontend and backend.',
-      cta: 'Live Demo',
+      ctaLive: 'Live Website',
+      ctaCase: 'View Case Study',
     },
-    moreLabel: 'More Projects',
-    placeholders: [
-      { title: 'Project Title', description: 'Short description of this project: what it does and which technologies were used.', cta: 'View Project' },
-      { title: 'Project Title', description: 'Short description of this project: what it does and which technologies were used.', cta: 'View Project' },
-    ],
+    moreLabel: 'More projects are on the way',
+    moreCta: 'See more on GitHub',
+    caseStudy: {
+      backLabel: 'Back to Works',
+      eyebrow: 'Case Study',
+      title: 'ARM GROUP',
+      subtitle: 'A full-stack e-commerce platform built for the Polish market',
+      meta: {
+        roleLabel: 'Role',
+        role: 'Frontend + Backend Developer (solo)',
+        typeLabel: 'Type',
+        type: 'E-commerce',
+        marketLabel: 'Market',
+        market: 'Poland',
+        stackLabel: 'Stack',
+        stack: 'HTML · CSS · JavaScript · Node.js · Express · Swiper.js',
+      },
+      ctaLive: 'Visit Live Website',
+      sections: {
+        challenge: {
+          heading: 'The Challenge',
+          body: 'ARM GROUP is an Armenian natural-food export company preparing to enter the Polish market. They needed an online storefront that could present their product catalog to Polish customers — in the right language and currency — while still covering the shopping basics buyers expect: browsing, filtering, a cart and a wishlist.',
+        },
+        solution: {
+          heading: 'The Solution',
+          body: "I designed and built the platform end-to-end — a custom frontend paired with a Node.js/Express backend, rather than a templated e-commerce solution. That kept the codebase lean and gave full control over the two pieces that mattered most for this market: a bilingual Armenian/Polish interface and multi-currency pricing, both built from scratch instead of bolted on with third-party plugins.",
+        },
+        features: {
+          heading: 'Key Features',
+          items: [
+            'Product catalog with category filtering',
+            'Shopping cart',
+            'Wishlist system',
+            'Armenian / Polish bilingual interface (custom i18n)',
+            'Multi-currency pricing',
+            'Interactive product galleries (Swiper.js)',
+            'Responsive design across devices',
+          ],
+        },
+        architecture: {
+          heading: 'Architecture',
+          body: "The frontend is built with vanilla JavaScript, HTML and CSS, with Swiper.js powering interactive product galleries. The backend runs on Node.js and Express, serving product and catalog data to the frontend. Language and currency switching are handled by a custom-built i18n layer rather than a third-party library, keeping translation strings and pricing logic fully under the project's control.",
+        },
+        challenges: {
+          heading: 'Technical Challenges',
+          body: 'Building the bilingual and multi-currency system from scratch meant handling translation strings, layout differences between Armenian and Polish text, and currency conversion consistently across every page — without a ready-made i18n package to fall back on. Keeping cart and wishlist state reliable across page navigation, without a frontend framework managing state, was the other main challenge.',
+        },
+        result: {
+          heading: 'Result',
+          body: 'ARM GROUP launched with a fully working, bilingual e-commerce storefront live at armgroup.pl — giving the company a functioning digital presence to reach customers in the Polish market, with product browsing, filtering, cart and wishlist all working end-to-end.',
+        },
+      },
+      techStackHeading: 'Tech Stack',
+      techStack: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express', 'Swiper.js'],
+    },
   },
   about: {
     headingPrefix: 'About',
@@ -92,7 +174,7 @@ export default {
     prompt: "Have an idea? Let's build it.",
     phoneLabel: 'Tele.',
     form: {
-      fallbackBefore: "The contact form isn't set up yet — please email me directly at",
+      fallbackBefore: 'Prefer email? Reach me directly at',
       fallbackAfter: '.',
       nameLabel: 'Name',
       emailLabel: 'Email',

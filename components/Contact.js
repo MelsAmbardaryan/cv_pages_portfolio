@@ -18,6 +18,10 @@ export default async function Contact() {
             <p className="contact-direct">
               <span>{dict.contact.phoneLabel}</span> <a href={`tel:${CONTACT_PHONE}`}>{CONTACT_PHONE}</a>
             </p>
+            <div className="social-media contact-social">
+              <a href="https://github.com/MelsAmbardaryan" target="_blank" rel="noopener noreferrer" aria-label={dict.hero.social.github}><i className="bx bxl-github" aria-hidden="true"></i></a>
+              <a href="https://www.linkedin.com/in/mels-ambardaryan-044828242/" target="_blank" rel="noopener noreferrer" aria-label={dict.hero.social.linkedin}><i className="bx bxl-linkedin" aria-hidden="true"></i></a>
+            </div>
           </div>
           <div className="contact-form-col">
             <ContactForm dict={dict.contact.form} />

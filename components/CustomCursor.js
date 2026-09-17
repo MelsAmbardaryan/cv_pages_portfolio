@@ -44,7 +44,7 @@ export default function CustomCursor() {
       }
       window.addEventListener('pointermove', onMove)
 
-      const HOVER_SELECTOR = 'a, .btn, .services-box, .works-box, .work-featured'
+      const HOVER_SELECTOR = 'a, .btn, .services-box, .work-featured, .skills-card'
       onOver = e => { if (e.target.closest(HOVER_SELECTOR)) ringRef.current.classList.add('cursor-hover') }
       onOut = e => { if (e.target.closest(HOVER_SELECTOR)) ringRef.current.classList.remove('cursor-hover') }
       document.addEventListener('pointerover', onOver)
