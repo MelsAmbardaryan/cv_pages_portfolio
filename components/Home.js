@@ -8,10 +8,9 @@ export default async function Home() {
     <section className="home" id="home">
       <div className="section-shell home-inner">
         <div className="home-container">
-          <p className="home-line">{dict.hero.greeting}</p>
-          <h1>{dict.hero.name}</h1>
-          <p className="home-line">{dict.hero.roleIntro} <span className="multiple-text">{dict.hero.typedRoles[0]}</span></p>
-          <p>{dict.hero.bio}</p>
+          <h1 className="home-title">{dict.hero.name} — <span>{dict.hero.role}</span></h1>
+          <p className="home-subtitle">{dict.hero.subtitle}</p>
+          <p className="home-bio">{dict.hero.bio}</p>
           <div className="social-media">
             <a href="https://www.facebook.com/mels.ambardaryan.5/" aria-label={dict.hero.social.facebook} style={{ '--i': 7 }}><i className="bx bxl-facebook" aria-hidden="true"></i></a>
             <a href="https://www.instagram.com/ambardaryanmels/" aria-label={dict.hero.social.instagram} style={{ '--i': 8 }}><i className="bx bxl-instagram" aria-hidden="true"></i></a>

@@ -1,11 +1,11 @@
 export default {
   meta: {
-    title: 'Mels Ambardaryan | Front-End Developer',
+    title: 'Mels Ambardaryan | Frontend / Full-Stack Developer',
     description:
-      'Portfolio of Mels Ambardaryan, a front-end developer specializing in HTML, CSS, and JavaScript. Explore projects, skills, and get in touch.',
+      'Portfolio of Mels Ambardaryan, a Frontend / Full-Stack Developer specializing in JavaScript and the Node.js ecosystem. Explore projects, skills, and get in touch.',
     siteName: 'Mels Ambardaryan Portfolio',
-    jobTitle: 'Front-End Developer',
-    keywords: ['Mels Ambardaryan', 'Front-End Developer', 'JavaScript Developer', 'Web Developer', 'Portfolio', 'Armenia'],
+    jobTitle: 'Frontend / Full-Stack Developer',
+    keywords: ['Mels Ambardaryan', 'Frontend Developer', 'Full-Stack Developer', 'JavaScript Developer', 'Node.js Developer', 'Web Developer', 'Portfolio', 'Armenia'],
   },
   skipLink: 'Skip to main content',
   nav: {
@@ -26,11 +26,10 @@ export default {
     label: 'ՀԱՅ',
   },
   hero: {
-    greeting: "Hello, it's me",
     name: 'Mels Ambardaryan',
-    roleIntro: "And I'm a",
-    typedRoles: ['Front-End Developer', 'Web Developer'],
-    bio: 'I build fast, responsive interfaces with JavaScript and modern front-end tooling — from full e-commerce builds like ARM GROUP to clean, accessible marketing sites. Three years in, still shipping, still learning.',
+    role: 'Frontend / Full-Stack Developer',
+    subtitle: 'I build fast, responsive and scalable web applications.',
+    bio: 'I create modern user interfaces with JavaScript and the Node.js ecosystem — from complex e-commerce platforms to SEO-optimized websites. With 3+ years of experience, I focus on clean code, strong performance and seamless UX/UI.',
     social: { facebook: 'Facebook', instagram: 'Instagram', linkedin: 'LinkedIn', github: 'GitHub' },
     ctaViewWork: 'View My Work',
     ctaDownloadCv: 'Download CV',
@@ -42,23 +41,30 @@ export default {
     items: [
       {
         number: '01',
-        title: 'Web Development',
+        title: 'Frontend Development',
         description:
-          'My work involves developing user interfaces and using HTML, CSS, and JavaScript to create functional and user-friendly web applications. I pay special attention to responsiveness and optimization to ensure that websites display correctly and perform efficiently on various devices and screen sizes.',
+          'Building functional, fast and accessible interfaces with modern JavaScript, HTML5 and CSS3.',
         link: 'View Work',
       },
       {
         number: '02',
-        title: 'Responsive Design',
+        title: 'Responsive Web Design & UX',
         description:
-          'I specialize in creating responsive designs to ensure websites display correctly and function well on any device and screen, regardless of the original layout.',
+          'Adapting websites for every screen — mobile, tablet and desktop — for a comfortable user experience.',
         link: 'View Work',
       },
       {
         number: '03',
-        title: 'SEO',
+        title: 'SEO & Performance Optimization',
         description:
-          "I specialize in SEO optimization to improve website visibility in search engines and attract more targeted traffic. My work includes keyword analysis, content optimization, and technical improvements to enhance a site's ranking in search results.",
+          'Improving site speed and technical SEO to help you rank higher in search results.',
+        link: 'View Work',
+      },
+      {
+        number: '04',
+        title: 'Full-Stack / API Integration',
+        description:
+          'Integrating backend services, REST APIs and databases using Node.js and Express.js.',
         link: 'View Work',
       },
     ],
@@ -163,15 +169,18 @@ export default {
   about: {
     headingPrefix: 'About',
     headingHighlight: 'Me',
-    subtitle: 'FrontEnd Developer',
-    bio: 'I have been involved in programming since 2022 and already have several certificates, both received in the Republic of Armenia and internationally. I have done volunteer work as well as freelance projects. I specialize in frontend development with JavaScript. I have studied at several educational centers, and now I am developing my skills both in programming and in foreign languages, particularly English.',
+    subtitle: 'Frontend / Full-Stack Developer',
+    bio: [
+      "I'm a Frontend Developer with 3 years of hands-on experience. Since 2022 I've worked on freelance and volunteer projects, earning certificates both locally and internationally.",
+      "I care not just about technical quality and clean code, but about solving real business problems. I'm constantly sharpening my technical skills and my English, to deliver strong results on international projects.",
+    ],
     readMore: 'Read More',
     readMoreAriaLabel: 'Read more about Mels Ambardaryan (opens CV as PDF)',
   },
   contact: {
     headingPrefix: 'Contact',
     headingHighlight: 'Me',
-    prompt: "Have an idea? Let's build it.",
+    prompt: "Have a project or an idea? Let's make it real.",
     phoneLabel: 'Tele.',
     form: {
       fallbackBefore: 'Prefer email? Reach me directly at',
@@ -188,7 +197,7 @@ export default {
   },
   footer: {
     wordmark: 'MELS.',
-    tagline: 'Front-End Developer',
+    tagline: 'Frontend / Full-Stack Developer',
     backToTopLabel: 'Back to top',
     copyright: '© 2026 Mels Ambardaryan. All rights reserved.',
     designedWithCare: 'Designed & built with care',

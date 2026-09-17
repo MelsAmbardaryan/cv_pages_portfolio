@@ -27,7 +27,7 @@ export default async function Page() {
         <Contact />
       </main>
       <Footer />
-      <SiteScripts typedStrings={dict.hero.typedRoles} />
+      <SiteScripts />
       <ScrollEffects />
       <CustomCursor />
     </>

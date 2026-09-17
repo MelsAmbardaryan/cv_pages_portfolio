@@ -128,7 +128,7 @@ export default async function ArmGroupCaseStudy() {
         </article>
       </main>
       <Footer />
-      <SiteScripts typedStrings={dict.hero.typedRoles} />
+      <SiteScripts />
       <ScrollEffects />
       <CustomCursor />
     </>

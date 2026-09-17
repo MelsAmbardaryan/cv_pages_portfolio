@@ -1,12 +1,8 @@
 'use client'
 import { useEffect } from 'react'
 
-export default function SiteScripts({ typedStrings }) {
+export default function SiteScripts() {
   useEffect(() => {
-    let cancelled = false
-    let typedInstance
-    let idleHandle
-
     const menuIcon = document.querySelector('#menu-icon')
     const navBar = document.querySelector('.navbar')
     const sections = document.querySelectorAll('section')
@@ -44,37 +40,9 @@ export default function SiteScripts({ typedStrings }) {
     }
     window.addEventListener('scroll', onScroll)
 
-    const startTyped = async () => {
-      if (!document.querySelector('.multiple-text')) return
-      const { default: Typed } = await import('typed.js')
-      if (cancelled) return
-
-      typedInstance = new Typed('.multiple-text', {
-        strings: typedStrings,
-        typeSpeed: 100,
-        backSpeed: 100,
-        backDelay: 1000,
-        loop: true,
-      })
-    }
-
-    // Defer to idle time so it doesn't compete with initial hydration/interactivity
-    if ('requestIdleCallback' in window) {
-      idleHandle = window.requestIdleCallback(startTyped)
-    } else {
-      idleHandle = setTimeout(startTyped, 200)
-    }
-
     return () => {
-      cancelled = true
       menuIcon.onclick = null
       window.removeEventListener('scroll', onScroll)
-      typedInstance?.destroy()
-      if ('cancelIdleCallback' in window) {
-        window.cancelIdleCallback(idleHandle)
-      } else {
-        clearTimeout(idleHandle)
-      }
     }
   }, [])
 

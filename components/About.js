@@ -23,7 +23,7 @@ export default async function About() {
             {dict.about.headingPrefix} <span>{dict.about.headingHighlight}</span>
           </h2>
           <h3>{dict.about.subtitle}</h3>
-          <p>{dict.about.bio}</p>
+          {dict.about.bio.map((paragraph, i) => <p key={i}>{paragraph}</p>)}
           <a href="/files/MelssCv.pdf" target="_blank" rel="noopener noreferrer" aria-label={dict.about.readMoreAriaLabel} className="btn">{dict.about.readMore}</a>
         </div>
       </div>
